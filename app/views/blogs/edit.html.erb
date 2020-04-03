@@ -1,2 +1,13 @@
-<h1>Blogs#edit</h1>
-<p>Find me in app/views/blogs/edit.html.erb</p>
+<div>
+  <div>
+    <div>
+      <h1>投稿の編集</h1>
+    </div>
+    <div>
+      <%= link_to "戻る", blogs_path %>
+    </div>
+  </div>
+  <div>
+    <%= render partial: "form", locals: { blog: @blog } %>
+  </div>
+</div>
