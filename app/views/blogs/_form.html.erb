@@ -1,3 +1,8 @@
+<% if blog.errors.present? %>
+  <% blog.errors.full_messages.each do |msg| %>
+    <%= msg %>
+  <% end %>
+<% end %> 
 <%= form_with(model: blog, local: true) do |f| %>
   <div>
     <%= f.label :image %>
