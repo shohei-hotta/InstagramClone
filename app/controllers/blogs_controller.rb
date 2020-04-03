@@ -23,16 +23,24 @@ class BlogsController < ApplicationController
   end
 
   def update
-    if @blog.update(blog_params)
-      redirect_to blogs_path, notice: "編集しました。"
+    if current_user.id == @blog.user.id
+      if @blog.update(blog_params)
+        redirect_to blogs_path, notice: "編集しました。"
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to blogs_path, notice: "他のユーザーの投稿は編集できません。"
     end
   end
 
   def destroy
-    @blog.destroy
-    redirect_to blogs_path, notice: "削除しました。"
+    if current_user.id == @blog.user.id
+      @blog.destroy
+      redirect_to blogs_path, notice: "削除しました。"
+    else
+      redirect_to blogs_path, notice: "他のユーザーの投稿は削除できません。"
+    end
   end
 
   def show
