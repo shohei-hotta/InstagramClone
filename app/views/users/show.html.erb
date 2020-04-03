@@ -1,0 +1,21 @@
+<div>
+  <h1>プロフィール</h1>
+</div>
+<div>
+  <div>
+    <%= User.human_attribute_name(:name) %>
+    <%= @user.name %>
+  </div>
+  <div>
+    <%= User.human_attribute_name(:email) %>
+    <%= @user.email %>
+  </div>
+  <div>
+    <%= User.human_attribute_name(:profile_image) %>
+    <%= image_tag @user.profile_image if @user.profile_image.attached? %>
+  </div>
+  <div>
+    <%= User.human_attribute_name(:comment) %>
+    <%= @user.comment %>
+  </div>
+</div>
