@@ -9,10 +9,10 @@
     <div>
       <div>
         <div>
-
+          <%= image_tag blog.user.profile_image if blog.user.profile_image.attached? %>
         </div>
         <div>
-
+          <%= blog.user.name %>
         </div>
       </div>
       <div>
