@@ -1,0 +1,25 @@
+<div>
+  <div>
+    <div>
+      新規投稿
+    </div>
+    <div>
+      <%= link_to "戻る", blogs_path %>
+    </div>
+  </div>
+  <div>
+    <%= form_with(model: @blog, local: true) do |f| %>
+      <div>
+        <%= f.label :image %>
+        <%= f.file_field :image %>
+      </div>
+      <div>
+        <%= f.label :content %>
+        <%= f.text_area :content %>
+      </div>
+      <div>
+        <%= f.submit "投稿" %>
+      </div>
+    <% end %>
+  </div>  
+</div>
