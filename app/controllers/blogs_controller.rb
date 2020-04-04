@@ -10,13 +10,21 @@ class BlogsController < ApplicationController
   end
 
   def create
-    @blog = Blog.new(blog_params)
-    @blog.user_id = current_user.id
-    if @blog.save
-      redirect_to blogs_path, notice: "投稿しました。"
-    else
+    @blog = current_user.blogs.build(blog_params)
+    if params[:back]
       render :new
+    else
+      if @blog.save
+        redirect_to blogs_path, notice: "投稿しました。"
+      else
+        render :new
+      end
     end
+  end
+
+  def confirm
+    @blog = current_user.blogs.build(blog_params)
+    render :new if @blog.invalid?
   end
 
   def edit

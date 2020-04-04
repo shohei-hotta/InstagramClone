@@ -3,9 +3,13 @@
     <%= msg %>
   <% end %>
 <% end %> 
-<%= form_with(model: blog, local: true) do |f| %>
+<%= form_with(model: blog, local: true, url: choose_new_or_edit ) do |f| %>
   <div>
     <%= f.label :image %>
+    <% if @blog.image.attached? %>
+      <%= image_tag @blog.image %>
+      <%= f.hidden_field :image, value: f.object.image.signed_id %>
+    <% end %>
     <%= f.file_field :image %>
   </div>
   <div>
