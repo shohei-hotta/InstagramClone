@@ -1,6 +1,8 @@
-<div>
-  <h1>アカウント作成</h1>
-</div>
+<% if @user.errors.present? %>
+  <% @user.errors.full_messages.each do |msg| %>
+    <%= msg %>
+  <% end %>
+<% end %>
 <div>
   <%= render partial: "form", locals: { user: @user } %>
 </div>
