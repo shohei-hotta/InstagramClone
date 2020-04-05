@@ -15,6 +15,7 @@ class BlogsController < ApplicationController
       render :new
     else
       if @blog.save
+        BlogMailer.blog_mail(@blog).deliver
         redirect_to blogs_path, notice: "投稿しました。"
       else
         render :new
