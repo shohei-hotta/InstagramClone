@@ -1,4 +1,4 @@
-.session-box {
+.user-box {
   border: solid 1px #DDDDDD;
   width: 40%;
   height: auto;
@@ -6,13 +6,13 @@
   margin: 1rem auto;
 
   
-  .session-heading {
+  .user-heading {
     font-family: "Monotype Corsiva";
     text-align: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
-  .session-form {
+  .user-form {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -24,7 +24,7 @@
         margin: 0 auto;
       }
     }
-    .login-button {
+    .user-button {
       position: relative;
       display: inline-block;
       padding: 0.25em 0.5em;
@@ -37,7 +37,7 @@
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
       text-shadow: 0 1px 0 rgba(0,0,0,0.2);
     }
-    .login-button:active {
+    .user-button:active {
       border: solid 1px #03A9F4;
       box-shadow: none;
       text-shadow: none;

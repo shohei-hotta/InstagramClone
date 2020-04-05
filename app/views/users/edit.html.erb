@@ -3,6 +3,34 @@
     <%= msg %>
   <% end %>
 <% end %>
-<div>
-  <%= render partial: "form", locals: { user: @user } %>
+<div class="user-box">
+  <div class="user-heading">
+    <h1>InstagramClone</h1>
+  </div>
+  <div class="user-form">
+  <%= form_with(model: @user, local: true) do |f| %>
+    <div class="form-group">
+      <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :email, class: "form-control", placeholder: "メールアドレス" %>
+    </div>
+    <div class="form-group">
+      <%= f.password_field :password, class: "form-control", placeholder: "パスワード" %>
+    </div>
+    <div class="form-group">
+      <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワード（確認用）" %>
+    </div>
+    <div>
+      <%= f.label :profile_image %>
+      <%= f.file_field :profile_image %>
+    </div>
+    <div>
+      <%= f.label :comment %>
+      <%= f.text_area :comment %>
+    </div>
+    <div>
+      <%= f.submit "登録" %>
+    </div>
+  <% end %>
 </div>
