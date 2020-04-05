@@ -10,15 +10,15 @@
   <div class="user-form">
     <%= form_with(model: @user, local: true) do |f| %>
       <div class="form-group">
-        <%= f.label :name %>
+        <%= f.label :name, class: "form-title" %>
         <%= f.text_field :name, class: "form-control", value: @user.name %>
       </div>
       <div class="form-group">
-        <%= f.label :profile_image %>
+        <%= f.label :profile_image, class: "form-title" %>
         <%= f.file_field :profile_image, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :comment %>
+        <%= f.label :comment, class: "form-title" %>
         <%= f.text_area :comment, class: "form-control", value: @user.comment %>
       </div>
       <%= f.submit "登録", class: "user-button" %>

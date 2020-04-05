@@ -17,7 +17,10 @@
     flex-direction: column;
     text-align: center;
     .form-group {
-      
+
+      .form-title {
+        font-weight: bold;
+      }
       .form-control {
         background-color: #f8f9fa;
         width: 70%;
