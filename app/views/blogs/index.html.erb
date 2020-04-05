@@ -5,6 +5,9 @@
   <div>
     <%= link_to "新規投稿", new_blog_path %>
   </div>
+  <div>
+    <%= link_to "お気に入り一覧", favorite_index_blogs_path %>
+  </div>
   <% @blogs.each do |blog| %>
     <div>
       <div>

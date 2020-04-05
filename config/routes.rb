@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :blogs do
     collection do
       post :confirm
+      get :favorite_index
     end
   end
   resources :users

@@ -1,0 +1,12 @@
+<div>
+  <h1>お気に入り一覧</h1>
+</div>
+<div> 
+  <% @blogs.each do |blog| %>
+    <div>
+      <%= blog.user.name %>
+      <%= image_tag blog.image if blog.image.attached? %>
+      <%= blog.content %>
+    </div>
+  <% end %>
+</div>

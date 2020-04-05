@@ -55,6 +55,10 @@ class BlogsController < ApplicationController
     @favorite = current_user.favorites.find_by(blog_id: @blog.id)
   end
 
+  def favorite_index
+    @blogs = current_user.favorite_blogs.order(:created_at)
+  end
+
   private
 
   def blog_params
