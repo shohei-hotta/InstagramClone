@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:edit, :update, :show, :destroy]
 
   def index
-    @blogs = Blog.all.order(:created_at)
+    @blogs = Blog.all.order(created_at: :DESC)
   end
 
   def new
@@ -57,7 +57,7 @@ class BlogsController < ApplicationController
   end
 
   def favorite_index
-    @blogs = current_user.favorite_blogs.order(:created_at)
+    @blogs = current_user.favorite_blogs.order(created_at: :DESC)
   end
 
   private
