@@ -1,0 +1,98 @@
+.blog-show-box {
+  border: solid 1px #DDDDDD;
+  width: 40%;
+  height: auto;
+  background-color: white;
+  margin: 1rem auto;
+
+  .blog-show-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 2rem;
+
+    .container-group {
+
+      .container-title {
+        font-weight: bold;
+      }
+      .blog-show-image {
+        height: auto;
+        width: 70%;
+      }
+      .blog-show-content {
+        padding: 0.5rem 1rem;
+        background-color: #f6f6f6;
+        border-radius: 8px;
+        margin: 0 auto;
+        width: 70%;
+      }
+    }
+    .blog-show-link {
+      display: flex;
+      margin: 1rem auto; 
+
+      .favorite-post-button {
+        display: block;
+        width: 8rem;
+        padding: 0.2rem;
+        text-align: center;
+        text-decoration: none;
+        color: #ff6699;
+        border: 2px solid #ff6699;
+        border-radius: 3px;
+        transition: .4s;
+      }
+      .favorite-post-button:hover {
+        background: #ff6699;
+        color: #fff;
+      }
+      .favorite-delete-button {
+        display: block;
+        width: 10rem;
+        padding: 0.2rem;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        border: 2px solid #ff6699;
+        background-color: #ff6699;
+        border-radius: 3px;
+        transition: .4s;
+      }
+      .favorite-delete-button:hover {
+        color: #ff6699;
+        background-color: #fff;
+      }
+      .edit-button {
+        display: block;
+        width: 4rem;
+        padding: 0.2rem;
+        text-align: center;
+        text-decoration: none;
+        color: darkolivegreen;
+        border: 2px solid darkolivegreen;
+        border-radius: 3px;
+        transition: .4s;
+      }
+      .edit-button:hover {
+        background: darkolivegreen;
+        color: #fff;
+      }
+      .delete-button {
+        display: block;
+        width: 4rem;
+        padding: 0.2rem;
+        text-align: center;
+        text-decoration: none;
+        color: darkred;
+        border: 2px solid darkred;
+        border-radius: 3px;
+        transition: .4s;
+      }
+      .delete-button:hover {
+        background: darkred;
+        color: #fff;
+      }
+    }
+  }
+}

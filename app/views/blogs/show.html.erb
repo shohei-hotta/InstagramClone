@@ -1,36 +1,39 @@
 <div>
-  <div>
-    <h1>投稿の詳細</h1>
-  </div>
-  <div>
-    <%= link_to "戻る", blogs_path %>
-  </div>
-  <div>
-    <p>投稿者</p>
-  </div>
-  <div>
-    <p><%= @blog.user.name %></p>
-  </div>
-  <div>
-    <p>内容</p>
-  </div>
-  <div>
-    <%= image_tag @blog.image if @blog.image.attached? %>
-  </div>
-  <div>
-    <%= @blog.content %>
-  </div>
-  <div>
-    <p>投稿日時</p>
-  </div>
-  <div>
-    <%= @blog.created_at.strftime("%Y年%m月%d日 %H:%M") %>
-  </div>
-  <div>
-    <p>更新日時</p>
-  </div>
-  <div>
-    <%= @blog.updated_at.strftime("%Y年%m月%d日 %H:%M") %>
+  <h1>投稿の詳細</h1>
+</div>
+<div>
+  <%= link_to "戻る", blogs_path %>
+</div>
+<div class="blog-show-box">
+  <div class="blog-show-container">
+    <div class="container-group">
+      <div class="container-title">投稿者</div>
+      <%= @blog.user.name %>
+    </div>
+    <div class="container-group">
+      <div class="container-title">内容</div>
+      <div><%= image_tag @blog.image, class: "blog-show-image" if @blog.image.attached? %></div>
+      <div class="blog-show-content"><%= @blog.content %></div>
+    </div>
+    <div class="container-group">
+      <div class="container-title">投稿日時</div>
+      <%= @blog.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+    </div>
+    <div class="container-group">
+      <div class="container-title">更新日時</div>
+      <%= @blog.updated_at.strftime("%Y年%m月%d日 %H:%M") %>
+    </div>
+    <div class="blog-show-link">
+      <% unless @blog.user_id == current_user.id %>
+        <% if @favorite.present? %>
+          <div><%= link_to "お気に入り解除する", favorite_path(id: @favorite.id), method: :delete, class: "favorite-delete-button" %></div>
+        <% else %>
+          <div><%= link_to "お気に入りする", favorites_path(blog_id: @blog.id), method: :post, class: "favorite-post-button" %></div>
+        <% end %>
+      <% end %>
+      <div><%= link_to "編集", edit_blog_path, class: "edit-button" if current_user.id == @blog.user.id %></div>
+      <div><%= link_to "削除", blog_path, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "delete-button" if current_user.id == @blog.user.id %></div>
+    </div>
   </div>
 </div>
 <% unless @blog.user_id == current_user.id %>
