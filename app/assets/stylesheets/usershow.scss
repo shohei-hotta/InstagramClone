@@ -1,6 +1,42 @@
 .index-link {
   display: flex;
   flex-direction: column;
+
+  .index-button {
+    position: relative;
+    display: block;
+    width: 6rem;
+    padding: 0.2rem;
+    text-align: center;
+    text-decoration: none;
+    color: #FFF;
+    background: #75A9FF;
+    border-bottom: 2px solid #2C7CFF;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+    margin-bottom: 1rem;
+  }
+  .index-button:active {
+    border-bottom: 2px solid #75A9FF;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+  }
+  .favorite-button {
+    position: relative;
+    display: block;
+    width: 9rem;
+    padding: 0.2rem;
+    text-align: center;
+    text-decoration: none;
+    color: #FFF;
+    background: #ff6699;
+    border-bottom: 2px solid #ff1A6F;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+  }
+  .favorite-button:active {
+    border-bottom: 2px solid #ff6699;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+  }
 }
 .user-profile {
   display: flex;
@@ -48,7 +84,7 @@
         border: solid 1px #DDDDDD;
         width: 80%;
         margin: 0 auto;
-        text-align: left;
+        text-align: center;
       }
     }
   }
