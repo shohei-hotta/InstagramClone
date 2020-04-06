@@ -1,12 +1,38 @@
 <div>
   <h1>お気に入り一覧</h1>
 </div>
-<div> 
-  <% @blogs.each do |blog| %>
-    <div>
-      <%= blog.user.name %>
-      <%= image_tag blog.image if blog.image.attached? %>
+<div>
+  <%= link_to "戻る", blogs_path %>
+</div>
+<% @blogs.each do |blog| %>
+  <div class="post-box">
+    <div class="post-box-header">
+      <div class="post-box-image">
+        <%= image_tag blog.user.profile_image, class: "post-box-profile-image" if blog.user.profile_image.attached? %>
+      </div>
+      <div class="post-box-poster">
+        <%= blog.user.name %>
+      </div>
+    </div>
+    <div class="post-box-image">
+      <%= image_tag blog.image, class: "img" if blog.image.attached? %>
+    </div>
+    <div class="post-box-content">
       <%= blog.content %>
     </div>
-  <% end %>
-</div>
+    <div class="post-box-link">
+      <div><%= link_to "詳細", blog_path(blog.id), class: "info-button" %></div>
+      <% unless blog.user_id == current_user.id %>
+        <% @favorite = current_user.favorites.find_by(blog_id: blog.id) %>
+        <% if @favorite.present? %>
+          <div><%= link_to "お気に入り解除する", favorite_path(id: @favorite.id), method: :delete, class: "favorite-delete-button" %></div>
+        <% else %>
+          <div><%= link_to "お気に入りする", favorites_path(blog_id: blog.id), method: :post, class: "favorite-post-button" %></div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="post-box-time">
+      <%= blog.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+    </div>
+  </div>
+<% end %>
