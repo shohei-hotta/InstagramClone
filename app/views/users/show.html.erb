@@ -1,24 +1,25 @@
-<div>
-  <h1>アカウント情報</h1>
+<div class="index-link">
+  <%= link_to "投稿一覧", blogs_path %>
+  <%= link_to "お気に入り一覧", favorite_index_blogs_path %>
 </div>
-<div>
+<div class="user-profile">
+  <div class="user-show-image">
+    <%= image_tag @user.profile_image, class: "user-image" if @user.profile_image.attached? %>
+  </div>
+  <div class="user-show">
+    <div class="user-show-name"> 
+      <%= @user.name %>
+    </div>
+    <div class="user-show-email">
+      <span class="user-show-email-heading"><%= User.human_attribute_name(:email) %></span>
+      <p class="user-show-box"><%= @user.email %></p>
+    </div>
+    <div class="user-show-content">
+      <span class="user-show-content-heading"><%= User.human_attribute_name(:comment) %></span>
+      <p class="user-show-box"><%= @user.comment%></p>
+    </div>
+  </div>
+</div>
+<div class="edit-link">
   <%= link_to "アカウント編集", edit_user_path %>
-</div>
-<div>
-  <div>
-    <%= User.human_attribute_name(:name) %>
-    <%= @user.name %>
-  </div>
-  <div>
-    <%= User.human_attribute_name(:email) %>
-    <%= @user.email %>
-  </div>
-  <div>
-    <%= User.human_attribute_name(:profile_image) %>
-    <%= image_tag @user.profile_image if @user.profile_image.attached? %>
-  </div>
-  <div>
-    <%= User.human_attribute_name(:comment) %>
-    <%= @user.comment %>
-  </div>
 </div>

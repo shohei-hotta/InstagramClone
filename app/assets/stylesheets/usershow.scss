@@ -1,0 +1,59 @@
+.index-link {
+  display: flex;
+  flex-direction: column;
+}
+.user-profile {
+  display: flex;
+  width: 70%;
+  height: auto;
+  margin: 0 auto;
+
+  .user-show-image {
+
+    .user-image {
+      height: 160px;
+      width: 160px;
+      border-radius: 50%;
+      margin-top: 1rem;
+    }
+  }
+  .user-show {
+    width: 50%;
+    text-align: center;
+
+    .user-show-name {
+      font-size: 3rem;
+    }
+    .user-show-email {
+
+      .user-show-email-heading {
+        font-weight: bold;
+      }
+      .user-show-box {
+        background-color: white;
+        border-radius: 0.2em;
+        border: solid 1px #DDDDDD;
+        width: 80%;
+        margin: 0 auto;
+      }
+    }
+    .user-show-content {
+
+      .user-show-content-heading {
+        font-weight: bold;
+      }
+      .user-show-box {
+        background-color: white;
+        border-radius: 0.2em;
+        border: solid 1px #DDDDDD;
+        width: 80%;
+        margin: 0 auto;
+        text-align: left;
+      }
+    }
+  }
+}
+.edit-link {
+  display: flex;
+  justify-content: flex-end;
+}

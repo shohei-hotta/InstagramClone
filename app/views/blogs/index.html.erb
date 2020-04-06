@@ -1,36 +1,29 @@
-<div>
-  <div>
-    <h1>投稿一覧</h1>
-  </div>
-  <div>
+<div class="container">
+  <div class="new-link">
     <%= link_to "新規投稿", new_blog_path %>
-  </div>
-  <div>
     <%= link_to "お気に入り一覧", favorite_index_blogs_path %>
   </div>
   <% @blogs.each do |blog| %>
-    <div>
-      <div>
-        <div>
+    <div class="post-box">
+      <div class="post-box-header">
+        <div class="post-box-poster">
           <%= image_tag blog.user.profile_image if blog.user.profile_image.attached? %>
-        </div>
-        <div>
           <%= blog.user.name %>
         </div>
       </div>
-      <div>
+      <div class="post-box-image">
         <%= image_tag blog.image if blog.image.attached? %>
       </div>
-      <div>
+      <div class="post-box-link">
         <div></div>
         <div><%= link_to "詳細", blog_path(blog.id) %></div>
         <div><%= link_to "編集", edit_blog_path(blog.id) if current_user.id == blog.user.id %></div>
         <div><%= link_to "削除", blog_path(blog.id), method: :delete, data: { confirm: "本当に削除しますか？" } if current_user.id == blog.user.id %></div>
       </div>
-      <div>
+      <div class="post-box-content">
         <%= blog.content %>
       </div>
-      <div>
+      <div class="post-box-time">
         <%= blog.created_at.strftime("%Y年%m月%d日 %H:%M") %>
       </div>
     </div>
