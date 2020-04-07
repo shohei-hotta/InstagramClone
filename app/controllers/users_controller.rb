@@ -22,10 +22,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to user_path, notice: "アカウントを編集しました。"
+    if current_user.id == @user.id
+      if @user.update(user_params)
+        redirect_to user_path, notice: "アカウントを編集しました。"
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to user_path, notice: "他のユーザーのプロフィールは編集できません。"
     end
   end
 
